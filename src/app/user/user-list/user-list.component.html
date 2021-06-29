@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+<div>
+    <input [(ngModel)]="searchCrit" type="text" placeholder="Search">
+</div>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th><button (click) = "sortFn('username')" class = "btn btn-link">Username</button></th>
+            <th><button (click) = "sortFn('firstname')" class = "btn btn-link">Firstname</button></th>
+            <th><button (click) = "sortFn('lastname')" class = "btn btn-link">Lastname</button></th>
+            <th><button (click) = "sortFn('phone')" class = "btn btn-link">Phone</button></th>
+            <th><button (click) = "sortFn('email')" class = "btn btn-link">Email</button></th>
+            <th>IsReviewer</th>
+            <th>IsAdmin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let u of users | searchUser:searchCrit | sort:sortColumn:sortAsc">
+            <td>{{u.username}}</td>
+            <td>{{u.firstname}}</td>
+            <td>{{u.lastname}}</td>
+            <td>{{u.phone}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.isReviewer}}</td>
+            <td>{{u.isAdmin}}</td>
+            <td>
+                <span>
+                    <a routerLink="/user/detail/{{u.id}}">Detail</a>
+                </span>
+                <span> | </span>
+                <span>
+                    <a routerLink="/user/edit/{{u.id}}">Edit</a>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <a routerLink="/user/create">Create</a>
+</div>
