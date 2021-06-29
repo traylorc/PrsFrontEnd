@@ -16,6 +16,12 @@ import { HomeComponent } from './misc/home/home.component';
 import { AboutComponent } from './misc/about/about.component';
 import { LoginComponent } from './user/login/login.component';
 import { SearchUserPipe } from './user/search-user.pipe';
+import { VendorComponent } from './vendor/vendor/vendor.component';
+import { SearchVendorPipe } from './vendor/search-vendor.pipe';
+import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
+import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
+import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
+import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,13 @@ import { SearchUserPipe } from './user/search-user.pipe';
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    SearchUserPipe
+    SearchUserPipe,
+    VendorComponent,
+    SearchVendorPipe,
+    VendorListComponent,
+    VendorCreateComponent,
+    VendorEditComponent,
+    VendorDetailComponent
   ],
   imports: [
     BrowserModule,FormsModule, HttpClientModule,
