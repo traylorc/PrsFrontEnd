@@ -66,6 +66,8 @@ const routes: Routes = [
   {path:'request/lines/:id', component: RequestLinesComponent},
   
   
+  // {path:'requestLines/create', component: RequestLineCreateComponent},
+  // {path:'requestLines/edit/:id', component: RequestLineEditComponent},
   
  
   

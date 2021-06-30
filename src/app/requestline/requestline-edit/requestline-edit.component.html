@@ -1,1 +1,25 @@
-<p>requestline-edit works!</p>
+<app-menu></app-menu>
+    <div>
+        <table class="table table-sm" style="width: 40%;">
+            <tr>
+                <td>Id:</td>
+                <td><input [(ngModel)]="rLine.id" type="number" disabled></td>
+            </tr>
+            <tr>
+                <td>Product Id:</td>
+                <td><input [(ngModel)]="rLine.productId" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Request Id:</td>
+                <td><input [(ngModel)]="rLine.requestId" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td><input [(ngModel)]="rLine.quantity" type="num"></td>
+            </tr>
+           
+            
+           
+        </table>
+        <button (click)="update()" class="btn btn-primary">Update Request</button>
+    </div>
