@@ -1,1 +1,45 @@
-<p>vendor-list works!</p>
+<app-menu></app-menu>
+<div>
+    <input [(ngModel)]="searchCrit" type="text" placeholder="Search">
+</div>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th><button (click) = "sortFn('code')" class = "btn btn-link">Code</button></th>
+            <th><button (click) = "sortFn('name')" class = "btn btn-link">Name</button></th>
+            <th><button (click) = "sortFn('address')" class = "btn btn-link">Address</button></th>
+            <th><button (click) = "sortFn('city')" class = "btn btn-link">City</button></th>
+            <th><button (click) = "sortFn('state')" class = "btn btn-link">State</button></th>
+            <th><button (click) = "sortFn('zip')" class = "btn btn-link">Zip</button></th>
+            <th>Phone</th>
+            <th><button (click) = "sortFn('email')" class = "btn btn-link">Email</button></th>
+  
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let v of vendors | searchVendor:searchCrit | sort:sortColumn:sortAsc">
+            <td>{{v.code}}</td>
+            <td>{{v.name}}</td>
+            <td>{{v.address}}</td>
+            <td>{{v.city}}</td>
+            <td>{{v.state}}</td>
+            <td>{{v.zip}}</td>
+            <td>{{v.phone}}</td>
+            <td>{{v.email}}</td>
+            <td>
+                <span>
+                    <a routerLink="/vendor/detail/{{v.id}}">Detail</a>
+                </span>
+                <span> | </span>
+                <span>
+                    <a routerLink="/vendor/edit/{{v.id}}">Edit</a>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <a routerLink="/vendor/create">Create</a>
+</div>

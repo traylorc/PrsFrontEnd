@@ -13,6 +13,10 @@ import { E404Component } from './misc/e404/e404.component';
 import { HomeComponent } from './misc/home/home.component';
 import { AboutComponent } from './misc/about/about.component';
 import { LoginComponent } from './user/login/login.component';
+import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
+import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
+import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
+import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 
 const routes: Routes = [
 
@@ -27,6 +31,12 @@ const routes: Routes = [
   {path:'user/detail/:id', component: UserDetailComponent},
   {path:'user/create', component: UserCreateComponent},
   {path:'user/edit/:id', component: UserEditComponent},
+
+
+  {path:'vendor/list', component: VendorListComponent},
+  {path:'vendor/detail/:id', component: VendorDetailComponent},
+  {path:'vendor/create', component: VendorCreateComponent},
+  {path:'vendor/edit/:id', component: VendorEditComponent},
 
   {path:'**', component: E404Component}
 
