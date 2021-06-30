@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<div>
+    <input [(ngModel)]="searchCrit" type="text" placeholder="Search">
+</div>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th><button (click) = "sortFn('partNbr')" class = "btn btn-link">PartNbr</button></th>
+            <th><button (click) = "sortFn('name')" class = "btn btn-link">Name</button></th>
+            <th><button (click) = "sortFn('price')" class = "btn btn-link">Price</button></th>
+            <th><button (click) = "sortFn('unit')" class = "btn btn-link">Unit</button></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let p of products | searchProduct:searchCrit | sort:sortColumn:sortAsc">
+            <td>{{p.partNbr}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.unit}}</td>           
+            <td>
+                <span>
+                    <a routerLink="/product/detail/{{p.id}}">Detail</a>
+                </span>
+                <span> | </span>
+                <span>
+                    <a routerLink="/product/edit/{{p.id}}">Edit</a>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <a routerLink="/product/create">Create</a>
+</div>

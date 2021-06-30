@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+    <div>
+        <table class="table table-sm" style="width: 40%;">
+            <tr>
+                <td>Id:</td>
+                <td><input [(ngModel)]="product.id" type="number" disabled></td>
+            </tr>
+            <tr>
+                <td>PartNbr:</td>
+                <td><input [(ngModel)]="product.partNbr" type="text"disabled ></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input [(ngModel)]="product.name" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input [(ngModel)]="product.price" type="number" disabled></td>
+            </tr>
+            <tr>
+                <td>Unit:</td>
+                <td><input [(ngModel)]="product.unit" type="text"disabled ></td>
+            </tr>
+            <tr>
+                <td>PhotoPath:</td>
+                <td><input [(ngModel)]="product.photoPath" type="text"disabled ></td>
+            </tr>
+        </table>
+        <button (click)="delete()" class="btn btn-primary">Delete Product</button>
+    </div>        
+    <div style="vertical-align: top;">             
+         <img src="assets/{{product.photoPath}}">
+    </div>
