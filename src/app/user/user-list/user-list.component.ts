@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Column } from 'src/app/misc/table/table.component';
 import { User } from '../user-class';
 import { UserService } from '../user.service';
 
@@ -11,6 +12,15 @@ export class UserListComponent implements OnInit {
 
   sortColumn: string = "id";
   sortAsc: boolean = true;
+
+  columns: Column[] = [
+    {display:'Username', sort:'username'},
+    {display:'Firstname', sort:'firstname'},
+    {display:'Lastname', sort:'lastname'},
+    {display:'Phone', sort:'phone'},
+    {display:'Email', sort:'email'}
+
+  ]
 
   sortFn(column: string): void{
     if(column ===this.sortColumn){

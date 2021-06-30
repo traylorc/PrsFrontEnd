@@ -1,23 +1,24 @@
 <app-menu></app-menu>
-<div>
+<!-- <div>
     <input [(ngModel)]="searchCrit" type="text" placeholder="Search">
-</div>
+</div> -->
 
 <table class="table table-sm">
     <thead>
         <tr>
-            <th><button (click) = "sortFn('username')" class = "btn btn-link">Username</button></th>
-            <th><button (click) = "sortFn('firstname')" class = "btn btn-link">Firstname</button></th>
+            <th *ngFor= "let c of columns"><button (click) = 'sortFn(c.sort)' class = "btn btn-link">{{c.display}}</button></th>
+            <!-- <th><button (click) = "sortFn('firstname')" class = "btn btn-link">Firstname</button></th>
             <th><button (click) = "sortFn('lastname')" class = "btn btn-link">Lastname</button></th>
             <th><button (click) = "sortFn('phone')" class = "btn btn-link">Phone</button></th>
-            <th><button (click) = "sortFn('email')" class = "btn btn-link">Email</button></th>
+            <th><button (click) = "sortFn('email')" class = "btn btn-link">Email</button></th> -->
             <th>IsReviewer</th>
             <th>IsAdmin</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor= "let u of users | searchUser:searchCrit | sort:sortColumn:sortAsc">
+        <!-- <tr *ngFor= "let u of users | searchUser:searchCrit | sort:sortColumn:sortAsc"> -->
+            <!-- <tr *ngFor= "let u of users">
             <td>{{u.username}}</td>
             <td>{{u.firstname}}</td>
             <td>{{u.lastname}}</td>
@@ -34,11 +35,9 @@
                     <a routerLink="/user/edit/{{u.id}}">Edit</a>
                 </span>
             </td>
-        </tr>
+        </tr> -->
     </tbody>
 </table>
 <div>
     <a routerLink="/user/create">Create</a>
 </div>
-
-<app-table [columns] = 'columns'></app-table>
