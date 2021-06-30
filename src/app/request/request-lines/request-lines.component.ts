@@ -5,15 +5,16 @@ import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
 @Component({
-  selector: 'app-request-detail',
-  templateUrl: './request-detail.component.html',
-  styleUrls: ['./request-detail.component.css']
+  selector: 'app-request-lines',
+  templateUrl: './request-lines.component.html',
+  styleUrls: ['./request-lines.component.css']
 })
-export class RequestDetailComponent implements OnInit {
+export class RequestLinesComponent implements OnInit {
 
+  
   sortColumn: string = "id";
   sortAsc: boolean = true;
-
+  
   sortFn(column: string): void {
     if(column === this.sortColumn){
       this.sortAsc = !this.sortAsc;
@@ -36,7 +37,6 @@ export class RequestDetailComponent implements OnInit {
   err =>{console.error(err);}
     )
   }
-
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;

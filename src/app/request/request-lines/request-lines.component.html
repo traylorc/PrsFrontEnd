@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th><button (click) = "sortFn('description')" class = "btn btn-link">Description</button></th>
+            <th><button (click) = "sortFn('justification')" class = "btn btn-link">Justification</button></th>
+            <th><button (click) = "sortFn('deliveryMode')" class = "btn btn-link">DeliveryMode</button></th>
+            <th><button (click) = "sortFn('status')" class = "btn btn-link">Status</button></th>
+            <th><button (click) = "sortFn('total')" class = "btn btn-link">Total</button></th>
+            <th><button (click) = "sortFn('userId')" class = "btn btn-link">User Id</button></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{request.description}}</td>
+            <td>{{request.justification}}</td>
+            <td>{{request.deliveryMode}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total}}</td>
+            <td>{{request.userId}}</td>
+            <span>
+                <a routerLink="/request/edit/{{request.id}}">Edit</a>
+            </span>
+        </tr>
+    </tbody>
+</table>    
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th><button style="padding-top: 24px;" (click) = "sortFn('id')" class = "btn btn-link">Id</button></th>
+            <th><button style="padding-top: 24px;" (click) = "sortFn('productId')" class = "btn btn-link">Product name</button></th>
+            <th><button style="padding-top: 24px;" (click) = "sortFn('quantity')" class = "btn btn-link">Quantity</button></th>
+            <th><button style="padding-top: 24px;" (click) = "sortFn('price')" class = "btn btn-link">Price</button></th>          
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let line of request.requestLines">
+            <td>{{line.id}}</td>
+            <td>{{line.product?.name}}</td>
+            <td>{{line.quantity}}</td>
+            <td>{{line.product?.price}}</td>
+            <!-- <td>
+                <span>
+                    <a routerLink="/requestLines/edit/{{requestLines.id}}">Edit</a>
+                </span>
+                <span> | </span>
+                <span>
+                    <a routerLink="/requestLines/delete/{{requestLines.id}}">Delete</a>
+                </span>
+            </td> -->
+            
+        </tr>
+    </tbody>
+</table>

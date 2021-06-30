@@ -30,6 +30,7 @@ import { E404Component } from './misc/e404/e404.component';
 import { HomeComponent } from './misc/home/home.component';
 import { AboutComponent } from './misc/about/about.component';
 import { LoginComponent } from './user/login/login.component';
+import { RequestLinesComponent } from './request/request-lines/request-lines.component';
 
 const routes: Routes = [
 
@@ -62,6 +63,12 @@ const routes: Routes = [
   {path:'request/detail/:id', component: RequestDetailComponent},
   {path:'request/create', component: RequestCreateComponent},
   {path:'request/edit/:id', component: RequestEditComponent},
+  {path:'request/lines/:id', component: RequestLinesComponent},
+  
+  
+  
+ 
+  
 
   {path:'**', component: E404Component}
 
