@@ -7,7 +7,7 @@
             <th><button (click) = "sortFn('status')" class = "btn btn-link">Status</button></th>
             <th><button (click) = "sortFn('total')" class = "btn btn-link">Total</button></th>
             <th><button (click) = "sortFn('userId')" class = "btn btn-link">User</button></th>
-            <th>Actions</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -17,10 +17,7 @@
             <td>{{request.status}}</td>
             <td>{{request.total}}</td>
             <td>{{request.user?.username}}</td>
-            <span>
-                
-                <a style="text-decoration: underline; color: blue;"   (click)="review()">Review</a>
-            </span>
+         
         </tr>
     </tbody>
 </table>    
@@ -31,7 +28,7 @@
             <th><button style="padding-top: 24px;" (click) = "sortFn('productId')" class = "btn btn-link">Product Name</button></th>
             <th><button style="padding-top: 24px;" (click) = "sortFn('quantity')" class = "btn btn-link">Quantity</button></th>
             <th><button style="padding-top: 24px;" (click) = "sortFn('price')" class = "btn btn-link">Price</button></th>          
-            <th>Actions</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -40,17 +37,16 @@
             <td>{{line.product?.name}}</td>
             <td>{{line.quantity}}</td>
             <td>{{line.product?.price}}</td>
-            <td>
-                <span>
-                    <a routerLink="/requestLines/edit/{{line.id}}">Edit</a>
-                </span>
-                <span> | </span>
-                <span>
-                    <a routerLink="/requestLines/detail/{{line.id}}">Detail</a>
-                </span>
-            </td> 
+            
             
         </tr>
     </tbody>
 </table>
-<a routerLink="/requestLines/create/{{request.id}}">Create</a>
+<span>
+    <button (click) = "approve()">Approve</button>
+    <span> | </span>
+    <input [(ngModel)] = "request.rejectReasoning" type="text">
+    <span> | </span>
+    <button (click) = "rejected()">Reject</button>
+
+</span>

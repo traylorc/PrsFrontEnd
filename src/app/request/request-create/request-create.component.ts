@@ -25,6 +25,7 @@ export class RequestCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.request.userId = this.syssvc.loggedInUser == null ? -1: this.syssvc.loggedInUser.id;
   }
 
 }

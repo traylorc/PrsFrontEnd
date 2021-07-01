@@ -6,8 +6,10 @@
                 <td><input [(ngModel)]="rLine.id" type="number" disabled></td>
             </tr>
             <tr>
-                <td>Product Id:</td>
-                <td><input [(ngModel)]="rLine.productId" type="text" disabled></td>
+                <td>Product:</td>
+                <td><select [(ngModel)]="rLine.productId">
+                    <option *ngFor ="let p of products" value="{{p.id}}">{{p.name}}</option>
+                </select></td>
             </tr>
             <tr>
                 <td>Request Id:</td>
@@ -15,7 +17,7 @@
             </tr>
             <tr>
                 <td>Quantity:</td>
-                <td><input [(ngModel)]="rLine.quantity" type="num"></td>
+                <td><input [(ngModel)]="rLine.quantity" type="number"></td>
             </tr>
            
             

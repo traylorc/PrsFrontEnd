@@ -22,14 +22,36 @@ export class RequestService {
   }
   create(request: Request): Observable<Request>
   {
+
     return this.http.post(`${this.baseurl}`, request) as Observable<Request>;
   }
-  edit(request: Request): Observable<Request>
+  edit(request: Request): Observable<any>
   {
-    return this.http.put(`${this.baseurl}/${request.id}`, request) as Observable<Request>;
+    return this.http.put(`${this.baseurl}/${request.id}`, request) as Observable<any>;
   }
   remove(id:number): Observable<Request>
   {
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<Request>;
   }
+  review(request: Request): Observable<any>
+  {
+    return this.http.put(`${this.baseurl}/${request.id}/review`, request) as Observable<any>
+  }
+  rejected(request: Request): Observable<any>
+  {
+    return this.http.put(`${this.baseurl}/${request.id}/rejected`, request) as Observable<any>
+  }
+  approved(request: Request): Observable<any>
+  {
+    return this.http.put(`${this.baseurl}/${request.id}/approved`, request) as Observable<any>
+  }
+  getreviews(request: Request): Observable<any>
+  {
+    return this.http.put(`${this.baseurl}/${request.id}/getreviews`, request) as Observable<any>
+  }
+  getreviewsnotmine(userId: number): Observable<Request[]>
+  {
+    return this.http.get(`${this.baseurl}/getreviews/${userId}`) as Observable<Request[]>
+  }
+  
 }

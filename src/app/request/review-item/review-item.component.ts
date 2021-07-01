@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from 'src/app/misc/system.service';
-import { Request } from '../request.class';
 import { RequestService } from '../request.service';
+import { Request } from '../request.class';
 
 @Component({
-  selector: 'app-request-lines',
-  templateUrl: './request-lines.component.html',
-  styleUrls: ['./request-lines.component.css']
+  selector: 'app-review-item',
+  templateUrl: './review-item.component.html',
+  styleUrls: ['./review-item.component.css']
 })
-export class RequestLinesComponent implements OnInit {
+export class ReviewItemComponent implements OnInit {
 
-  
   sortColumn: string = "id";
   sortAsc: boolean = true;
   
@@ -29,15 +28,6 @@ export class RequestLinesComponent implements OnInit {
 
   constructor(private syssvc: SystemService, private requestsvc: RequestService, private router: Router, private route: ActivatedRoute) { }
 
-  delete(): void {
-    this.requestsvc.remove(this.id).subscribe(
-      res =>{console.debug("Success", res);
-    this.router.navigateByUrl("/request/list");
-  },
-  err =>{console.error(err);}
-    )
-  }
-
   refresh(): void{
     this.id = this.route.snapshot.params.id;
     this.requestsvc.getByPk(this.id).subscribe(
@@ -48,15 +38,32 @@ export class RequestLinesComponent implements OnInit {
     )
   }
 
-  review(): void {
-    this.requestsvc.review(this.request).subscribe(
-      res =>{console.debug("success", res);
-    this.refresh();}
+  rejected(): void {
+    this.requestsvc.rejected(this.request).subscribe(
+      res =>{console.debug("Success", res);
+      this.refresh();
+  },
+  err =>{console.error(err);}
+    )
+  }
+  
+  approve(): void {
+    this.requestsvc.approved(this.request).subscribe(
+      res =>{console.debug("Success", res);
+      this.refresh();
+  },
+  err =>{console.error(err);}
     )
   }
 
   ngOnInit(): void {
-    this.refresh();
+    this.id = this.route.snapshot.params.id;
+    this.requestsvc.getByPk(this.id).subscribe(
+      res => {console.debug("Success", res);
+    this.request = res;
+  },
+  err =>{console.error(err);}
+    )
   }
 
 }

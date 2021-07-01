@@ -24,13 +24,20 @@ import { RequestCreateComponent } from './request/request-create/request-create.
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestListComponent } from './request/request-list/request-list.component';
+import { RequestLinesComponent } from './request/request-lines/request-lines.component';
+
+
+import { RequestlineDetailComponent } from './requestline/requestline-detail/requestline-detail.component';
+import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
 
 
 import { E404Component } from './misc/e404/e404.component';
 import { HomeComponent } from './misc/home/home.component';
 import { AboutComponent } from './misc/about/about.component';
 import { LoginComponent } from './user/login/login.component';
-import { RequestLinesComponent } from './request/request-lines/request-lines.component';
+import { ReviewRequestComponent } from './request/review-request/review-request.component';
+import { ReviewItemComponent } from './request/review-item/review-item.component';
 
 const routes: Routes = [
 
@@ -66,10 +73,14 @@ const routes: Routes = [
   {path:'request/lines/:id', component: RequestLinesComponent},
   
   
-  // {path:'requestLines/create', component: RequestLineCreateComponent},
-  // {path:'requestLines/edit/:id', component: RequestLineEditComponent},
+  {path:'requestLines/create/:rid', component: RequestlineCreateComponent},
+  {path:'requestLines/edit/:id', component: RequestlineEditComponent},
+  {path:'requestLines/detail/:id', component: RequestlineDetailComponent},
   
- 
+  {path:'review/list', component: ReviewRequestComponent},
+
+
+  {path:'review/item/:id', component: ReviewItemComponent},
   
 
   {path:'**', component: E404Component}
