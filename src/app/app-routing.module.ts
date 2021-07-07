@@ -41,7 +41,7 @@ import { ReviewItemComponent } from './request/review-item/review-item.component
 
 const routes: Routes = [
 
-  {path:'', redirectTo:'/home', pathMatch:'full'},
+  {path:'', redirectTo:'/user/list', pathMatch:'full'},
 
   {path:'home', component: HomeComponent},
   {path:'about', component: AboutComponent},
